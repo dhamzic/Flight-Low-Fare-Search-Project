@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KingICT_Project
 {
 
-    public class Rootobject
+    public class Flight
     {
         public Datum[] data { get; set; }
         public Dictionaries dictionaries { get; set; }
