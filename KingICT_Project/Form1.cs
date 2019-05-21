@@ -44,10 +44,10 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         {
             InitializeComponent();
 
-            //string accessToken = GetAuthorizationData().Result;
+            string accessToken = GetAuthorizationData().Result;
 
-            //TaskFactory tf = new TaskFactory();
-            //Flight flightsList = (Flight)tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result;
+            TaskFactory tf = new TaskFactory();
+            Flight flightsList = (Flight)tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result;
 
 
 
@@ -80,7 +80,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         {
             Flight flightsObject = new Flight();
 
-            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?origin=MAD&destination=PAR&departureDate=2019-08-01&returnDate=2019-08-28";
+            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?origin=MAD&destination=ZAG&departureDate=2019-08-01&returnDate=2019-08-28";
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             using (HttpResponseMessage response = await client.GetAsync(pageUrl))
