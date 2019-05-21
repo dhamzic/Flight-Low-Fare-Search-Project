@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.UiChildrenTextBox = new System.Windows.Forms.TextBox();
@@ -53,11 +55,22 @@
             this.UiOriginIataCodeGridView = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.UiSearchResultDataGridView = new System.Windows.Forms.DataGridView();
+            this.originDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.destinationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departureDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.changesOutgoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.changesIngoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberOfPassengersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flightsGridViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UiOriginIataCodeGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UiSearchResultDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsGridViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,9 +91,9 @@
             this.groupBox1.Controls.Add(this.UiOriginIataCodeGridView);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox1.Location = new System.Drawing.Point(17, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(725, 431);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -98,9 +111,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox2.Location = new System.Drawing.Point(548, 153);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(169, 170);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
@@ -110,7 +123,7 @@
             // 
             this.UiChildrenTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.UiChildrenTextBox.Location = new System.Drawing.Point(89, 65);
-            this.UiChildrenTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiChildrenTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UiChildrenTextBox.Name = "UiChildrenTextBox";
             this.UiChildrenTextBox.Size = new System.Drawing.Size(53, 23);
             this.UiChildrenTextBox.TabIndex = 29;
@@ -130,7 +143,7 @@
             // 
             this.UiSeniorsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.UiSeniorsTextBox.Location = new System.Drawing.Point(89, 124);
-            this.UiSeniorsTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiSeniorsTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UiSeniorsTextBox.Name = "UiSeniorsTextBox";
             this.UiSeniorsTextBox.Size = new System.Drawing.Size(53, 23);
             this.UiSeniorsTextBox.TabIndex = 25;
@@ -150,7 +163,7 @@
             // 
             this.UiInfantsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.UiInfantsTextBox.Location = new System.Drawing.Point(89, 95);
-            this.UiInfantsTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiInfantsTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UiInfantsTextBox.Name = "UiInfantsTextBox";
             this.UiInfantsTextBox.Size = new System.Drawing.Size(53, 23);
             this.UiInfantsTextBox.TabIndex = 23;
@@ -170,7 +183,7 @@
             // 
             this.UiAdultsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.UiAdultsTextBox.Location = new System.Drawing.Point(89, 36);
-            this.UiAdultsTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiAdultsTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UiAdultsTextBox.Name = "UiAdultsTextBox";
             this.UiAdultsTextBox.Size = new System.Drawing.Size(53, 23);
             this.UiAdultsTextBox.TabIndex = 22;
@@ -201,7 +214,7 @@
             // 
             this.UiReturnDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UiReturnDateTimePicker.Location = new System.Drawing.Point(556, 80);
-            this.UiReturnDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiReturnDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.UiReturnDateTimePicker.Name = "UiReturnDateTimePicker";
             this.UiReturnDateTimePicker.Size = new System.Drawing.Size(160, 23);
             this.UiReturnDateTimePicker.TabIndex = 19;
@@ -213,7 +226,7 @@
             this.UiCurrentSelectionListBox.HorizontalScrollbar = true;
             this.UiCurrentSelectionListBox.ItemHeight = 20;
             this.UiCurrentSelectionListBox.Location = new System.Drawing.Point(8, 398);
-            this.UiCurrentSelectionListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiCurrentSelectionListBox.Margin = new System.Windows.Forms.Padding(4);
             this.UiCurrentSelectionListBox.Name = "UiCurrentSelectionListBox";
             this.UiCurrentSelectionListBox.Size = new System.Drawing.Size(305, 24);
             this.UiCurrentSelectionListBox.TabIndex = 16;
@@ -225,7 +238,7 @@
             this.UiSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.UiSearchButton.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.UiSearchButton.Location = new System.Drawing.Point(615, 389);
-            this.UiSearchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiSearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.UiSearchButton.Name = "UiSearchButton";
             this.UiSearchButton.Size = new System.Drawing.Size(103, 33);
             this.UiSearchButton.TabIndex = 15;
@@ -236,7 +249,7 @@
             // 
             this.UiOriginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UiOriginButton.Location = new System.Drawing.Point(8, 362);
-            this.UiOriginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiOriginButton.Margin = new System.Windows.Forms.Padding(4);
             this.UiOriginButton.Name = "UiOriginButton";
             this.UiOriginButton.Size = new System.Drawing.Size(153, 28);
             this.UiOriginButton.TabIndex = 14;
@@ -247,7 +260,7 @@
             // 
             this.UiDestinationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UiDestinationButton.Location = new System.Drawing.Point(161, 362);
-            this.UiDestinationButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiDestinationButton.Margin = new System.Windows.Forms.Padding(4);
             this.UiDestinationButton.Name = "UiDestinationButton";
             this.UiDestinationButton.Size = new System.Drawing.Size(153, 28);
             this.UiDestinationButton.TabIndex = 13;
@@ -270,7 +283,7 @@
             this.UiCurrencyComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UiCurrencyComboBox.FormattingEnabled = true;
             this.UiCurrencyComboBox.Location = new System.Drawing.Point(556, 118);
-            this.UiCurrencyComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiCurrencyComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.UiCurrencyComboBox.Name = "UiCurrencyComboBox";
             this.UiCurrencyComboBox.Size = new System.Drawing.Size(160, 25);
             this.UiCurrencyComboBox.TabIndex = 8;
@@ -290,7 +303,7 @@
             // 
             this.UiDepartureDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UiDepartureDateTimePicker.Location = new System.Drawing.Point(556, 42);
-            this.UiDepartureDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiDepartureDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.UiDepartureDateTimePicker.Name = "UiDepartureDateTimePicker";
             this.UiDepartureDateTimePicker.Size = new System.Drawing.Size(160, 23);
             this.UiDepartureDateTimePicker.TabIndex = 6;
@@ -299,7 +312,7 @@
             // 
             this.UiOriginSearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.UiOriginSearchTextBox.Location = new System.Drawing.Point(117, 42);
-            this.UiOriginSearchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiOriginSearchTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UiOriginSearchTextBox.Name = "UiOriginSearchTextBox";
             this.UiOriginSearchTextBox.Size = new System.Drawing.Size(196, 23);
             this.UiOriginSearchTextBox.TabIndex = 2;
@@ -321,7 +334,7 @@
             this.UiOriginIataCodeGridView.AllowUserToDeleteRows = false;
             this.UiOriginIataCodeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UiOriginIataCodeGridView.Location = new System.Drawing.Point(8, 71);
-            this.UiOriginIataCodeGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiOriginIataCodeGridView.Margin = new System.Windows.Forms.Padding(4);
             this.UiOriginIataCodeGridView.Name = "UiOriginIataCodeGridView";
             this.UiOriginIataCodeGridView.ReadOnly = true;
             this.UiOriginIataCodeGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -333,9 +346,9 @@
             this.groupBox3.Controls.Add(this.UiSearchResultDataGridView);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox3.Location = new System.Drawing.Point(17, 468);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(725, 331);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
@@ -345,15 +358,103 @@
             // 
             this.UiSearchResultDataGridView.AllowUserToAddRows = false;
             this.UiSearchResultDataGridView.AllowUserToDeleteRows = false;
+            this.UiSearchResultDataGridView.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UiSearchResultDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.UiSearchResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UiSearchResultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.originDataGridViewTextBoxColumn,
+            this.destinationDataGridViewTextBoxColumn,
+            this.departureDateDataGridViewTextBoxColumn,
+            this.returnDateDataGridViewTextBoxColumn,
+            this.changesOutgoingDataGridViewTextBoxColumn,
+            this.changesIngoingDataGridViewTextBoxColumn,
+            this.numberOfPassengersDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.currencyDataGridViewTextBoxColumn});
+            this.UiSearchResultDataGridView.DataSource = this.flightsGridViewBindingSource;
             this.UiSearchResultDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UiSearchResultDataGridView.Location = new System.Drawing.Point(4, 27);
-            this.UiSearchResultDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UiSearchResultDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.UiSearchResultDataGridView.Name = "UiSearchResultDataGridView";
             this.UiSearchResultDataGridView.ReadOnly = true;
+            this.UiSearchResultDataGridView.RowHeadersVisible = false;
             this.UiSearchResultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.UiSearchResultDataGridView.Size = new System.Drawing.Size(717, 300);
             this.UiSearchResultDataGridView.TabIndex = 0;
+            // 
+            // originDataGridViewTextBoxColumn
+            // 
+            this.originDataGridViewTextBoxColumn.DataPropertyName = "Origin";
+            this.originDataGridViewTextBoxColumn.HeaderText = "Origin";
+            this.originDataGridViewTextBoxColumn.Name = "originDataGridViewTextBoxColumn";
+            this.originDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // destinationDataGridViewTextBoxColumn
+            // 
+            this.destinationDataGridViewTextBoxColumn.DataPropertyName = "Destination";
+            this.destinationDataGridViewTextBoxColumn.HeaderText = "Destination";
+            this.destinationDataGridViewTextBoxColumn.Name = "destinationDataGridViewTextBoxColumn";
+            this.destinationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departureDateDataGridViewTextBoxColumn
+            // 
+            this.departureDateDataGridViewTextBoxColumn.DataPropertyName = "DepartureDate";
+            this.departureDateDataGridViewTextBoxColumn.HeaderText = "Departure Date";
+            this.departureDateDataGridViewTextBoxColumn.Name = "departureDateDataGridViewTextBoxColumn";
+            this.departureDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // returnDateDataGridViewTextBoxColumn
+            // 
+            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "Return Date";
+            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            this.returnDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // changesOutgoingDataGridViewTextBoxColumn
+            // 
+            this.changesOutgoingDataGridViewTextBoxColumn.DataPropertyName = "ChangesOutgoing";
+            this.changesOutgoingDataGridViewTextBoxColumn.HeaderText = "Changes Out.";
+            this.changesOutgoingDataGridViewTextBoxColumn.Name = "changesOutgoingDataGridViewTextBoxColumn";
+            this.changesOutgoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // changesIngoingDataGridViewTextBoxColumn
+            // 
+            this.changesIngoingDataGridViewTextBoxColumn.DataPropertyName = "ChangesIngoing";
+            this.changesIngoingDataGridViewTextBoxColumn.HeaderText = "Changes In.";
+            this.changesIngoingDataGridViewTextBoxColumn.Name = "changesIngoingDataGridViewTextBoxColumn";
+            this.changesIngoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numberOfPassengersDataGridViewTextBoxColumn
+            // 
+            this.numberOfPassengersDataGridViewTextBoxColumn.DataPropertyName = "NumberOfPassengers";
+            this.numberOfPassengersDataGridViewTextBoxColumn.HeaderText = "Passengers Num.";
+            this.numberOfPassengersDataGridViewTextBoxColumn.Name = "numberOfPassengersDataGridViewTextBoxColumn";
+            this.numberOfPassengersDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // currencyDataGridViewTextBoxColumn
+            // 
+            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
+            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
+            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
+            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // flightsGridViewBindingSource
+            // 
+            this.flightsGridViewBindingSource.DataSource = typeof(KingICT_Project.Flight_classes.FlightsGridView);
             // 
             // UiMainForm
             // 
@@ -362,7 +463,7 @@
             this.ClientSize = new System.Drawing.Size(761, 814);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UiMainForm";
@@ -376,6 +477,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UiOriginIataCodeGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UiSearchResultDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsGridViewBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -407,6 +509,16 @@
         private System.Windows.Forms.DateTimePicker UiReturnDateTimePicker;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView UiSearchResultDataGridView;
+        private System.Windows.Forms.BindingSource flightsGridViewBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn originDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn destinationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departureDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn changesOutgoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn changesIngoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberOfPassengersDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
     }
 }
 
