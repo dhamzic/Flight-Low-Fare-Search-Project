@@ -39,18 +39,36 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
              
              */
 
-
+        public string SelectedOrigin;
+        public string SelectedDestination;
         public UiMainForm()
         {
             InitializeComponent();
 
             string accessToken = GetAuthorizationData().Result;
 
-            TaskFactory tf = new TaskFactory();
-            Flight flightsList = (Flight)tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result;
+            TaskFactory tf = new TaskFactory(); 
+            TableFilling(tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result);
 
+        }
 
+        private void TableFilling(Flight flightsObject)
+        {
+            List<FlightsGridView> listOfFlights = new List<FlightsGridView>();
+            foreach (var flight in flightsObject.Data)
+            {
+                listOfFlights.Add(new FlightsGridView
+                {
+                    ChangesIngoing = flight.OfferItems[0].Services[0].Segments.Count() - 1,
+                    ChangesOutgoing = flight.OfferItems[0].Services[1].Segments.Count() - 1,
+                    Availability = int.Parse(UiAdultsTextBox.Text) + int.Parse(UiInfantsTextBox.Text) + int.Parse(UiSeniorsTextBox.Text) + int.Parse(UiChildrenTextBox.Text),
+                    Price = double.Parse(flight.OfferItems[0].Price.Total)
+                }
+                );
+            }
 
+            UiSearchResultDataGridView.DataSource = null;
+            UiSearchResultDataGridView.DataSource = listOfFlights;
         }
 
 
@@ -93,6 +111,16 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                 }
             }
             return flightsObject;
+        }
+
+        private void UiOriginButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UiDestinationButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -14,7 +14,7 @@ namespace KingICT_Project.Flight_classes
         public string ReturnDate { get; set; }
         public int ChangesOutgoing { get; set; }
         public int ChangesIngoing { get; set; }
-        public int NumberOfPassengers { get; set; }
+        public int Availability { get; set; }
         public double Price { get; set; }
         public string Currency { get; set; }
 
