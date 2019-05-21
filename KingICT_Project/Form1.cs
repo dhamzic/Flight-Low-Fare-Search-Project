@@ -43,15 +43,21 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         public UiMainForm()
         {
             InitializeComponent();
+
             string accessToken = GetAuthorizationData().Result;
+
             TaskFactory tf = new TaskFactory();
-            tf.StartNew(() => GetDataFromAmadeusWebService(accessToken));
+            Flight flightsList = (Flight)tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result;
+
+
+
         }
+
 
         /// <summary>
         /// Access Token has an expiring deadline so, every time before fetching data from Amadeus web service, the app needs to fetch newest access token.
         /// </summary>
-        private static async Task<string> GetAuthorizationData()
+        private async Task<string> GetAuthorizationData()
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, @"https://test.api.amadeus.com/v1/security/oauth2/token");
@@ -70,8 +76,10 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         /// <summary>
         /// The function that fetches the JSON string from Amadeus web service and stores that JSON to an object of the class.
         /// </summary>
-        private async void GetDataFromAmadeusWebService(string accessToken)
+        private async Task<Flight> GetDataFromAmadeusWebService(string accessToken)
         {
+            Flight flightsObject = new Flight();
+
             string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-dates?origin=MAD&destination=MUC";
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
@@ -81,9 +89,10 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                 string json = await content.ReadAsStringAsync();
                 if (json != null)
                 {
-                    Flight flightsObject = JsonConvert.DeserializeObject<Flight>(json);
+                    flightsObject = JsonConvert.DeserializeObject<Flight>(json);
                 }
             }
+            return flightsObject;
         }
     }
 }
