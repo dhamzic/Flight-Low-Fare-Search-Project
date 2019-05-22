@@ -45,7 +45,10 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         public UiMainForm()
         {
             accessToken = GetAuthorizationData().Result;
+
             InitializeComponent();
+            CurrencyFilling();
+            IataTableFilling();
             ControLInitialSettings();
 
             
@@ -57,7 +60,18 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             UiDepartureDateTimePicker.MinDate = DateTime.Now;
             UiReturnDateTimePicker.MinDate = DateTime.Now;
         }
-
+        private void CurrencyFilling()
+        {
+            List<string> CurrencyList = new List<string>();
+            CurrencyList.Add("USD");
+            CurrencyList.Add("EUR");
+            CurrencyList.Add("HRK");
+        }
+        private void IataTableFilling()
+        {
+            UiOriginIataCodeGridView.DataSource = null;
+            UiOriginIataCodeGridView.DataSource = DataBaseOp.FetchSpecificIataCodes(String.Empty);
+        }
         private void TableFilling(Flight flightsObject)
         {
             UiSearchResultDataGridView.DataSource = null;
@@ -142,6 +156,11 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             TaskFactory tf = new TaskFactory();
             TableFilling(tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result);
         }
-       
+
+        private void UiOriginSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UiOriginIataCodeGridView.DataSource = null;
+            UiOriginIataCodeGridView.DataSource = DataBaseOp.FetchSpecificIataCodes(UiOriginSearchTextBox.Text);
+        }
     }
 }

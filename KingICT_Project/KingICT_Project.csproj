@@ -65,6 +65,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBaseOp.cs" />
     <Compile Include="Flight classes\Authorization.cs" />
     <Compile Include="Flight classes\Flight.cs" />
     <Compile Include="Flight classes\FlightsGridView.cs" />
@@ -114,6 +115,8 @@
       <DependentUpon>FlightLowFareSearchModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\FlightsDBEntities.datasource" />
+    <None Include="Properties\DataSources\Iata_airport_codes.datasource" />
     <None Include="Properties\DataSources\KingICT_Project.Flight_classes.FlightsGridView.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
