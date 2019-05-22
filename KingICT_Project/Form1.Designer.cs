@@ -127,7 +127,7 @@
             this.UiChildrenTextBox.Name = "UiChildrenTextBox";
             this.UiChildrenTextBox.Size = new System.Drawing.Size(41, 20);
             this.UiChildrenTextBox.TabIndex = 29;
-            this.UiChildrenTextBox.Text = "2";
+            this.UiChildrenTextBox.Text = "0";
             this.UiChildrenTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
@@ -147,7 +147,7 @@
             this.UiSeniorsTextBox.Name = "UiSeniorsTextBox";
             this.UiSeniorsTextBox.Size = new System.Drawing.Size(41, 20);
             this.UiSeniorsTextBox.TabIndex = 25;
-            this.UiSeniorsTextBox.Text = "4";
+            this.UiSeniorsTextBox.Text = "0";
             this.UiSeniorsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -167,7 +167,7 @@
             this.UiInfantsTextBox.Name = "UiInfantsTextBox";
             this.UiInfantsTextBox.Size = new System.Drawing.Size(41, 20);
             this.UiInfantsTextBox.TabIndex = 23;
-            this.UiInfantsTextBox.Text = "3";
+            this.UiInfantsTextBox.Text = "0";
             this.UiInfantsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
@@ -187,7 +187,7 @@
             this.UiAdultsTextBox.Name = "UiAdultsTextBox";
             this.UiAdultsTextBox.Size = new System.Drawing.Size(41, 20);
             this.UiAdultsTextBox.TabIndex = 22;
-            this.UiAdultsTextBox.Text = "1";
+            this.UiAdultsTextBox.Text = "0";
             this.UiAdultsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -410,14 +410,14 @@
             // changesOutgoingDataGridViewTextBoxColumn
             // 
             this.changesOutgoingDataGridViewTextBoxColumn.DataPropertyName = "ChangesOutgoing";
-            this.changesOutgoingDataGridViewTextBoxColumn.HeaderText = "Changes Out.";
+            this.changesOutgoingDataGridViewTextBoxColumn.HeaderText = "Stops Out.";
             this.changesOutgoingDataGridViewTextBoxColumn.Name = "changesOutgoingDataGridViewTextBoxColumn";
             this.changesOutgoingDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // changesIngoingDataGridViewTextBoxColumn
             // 
             this.changesIngoingDataGridViewTextBoxColumn.DataPropertyName = "ChangesIngoing";
-            this.changesIngoingDataGridViewTextBoxColumn.HeaderText = "Changes In.";
+            this.changesIngoingDataGridViewTextBoxColumn.HeaderText = "Stops In.";
             this.changesIngoingDataGridViewTextBoxColumn.Name = "changesIngoingDataGridViewTextBoxColumn";
             this.changesIngoingDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -527,6 +527,11 @@
         private System.Windows.Forms.DateTimePicker UiReturnDateTimePicker;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView UiSearchResultDataGridView;
+        private System.Windows.Forms.BindingSource flightsGridViewBindingSource;
+        private System.Windows.Forms.BindingSource iataairportcodesBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn airportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn originDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn departureDateDataGridViewTextBoxColumn;
@@ -536,11 +541,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn availabilityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource flightsGridViewBindingSource;
-        private System.Windows.Forms.BindingSource iataairportcodesBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn airportDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
     }
 }
 

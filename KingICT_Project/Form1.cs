@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -39,9 +40,10 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
              
              */
 
-        public string SelectedOrigin;
-        public string SelectedDestination;
+        public string selectedOrigin;
+        public string selectedDestination;
         private string accessToken;
+        private FlightRoute fr = new FlightRoute();
         public UiMainForm()
         {
             accessToken = GetAuthorizationData().Result;
@@ -66,6 +68,8 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             CurrencyList.Add("USD");
             CurrencyList.Add("EUR");
             CurrencyList.Add("HRK");
+            UiCurrencyComboBox.DataSource = null;
+            UiCurrencyComboBox.DataSource = CurrencyList;
         }
         private void IataTableFilling()
         {
@@ -83,10 +87,15 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                 {
                     listOfFlights.Add(new FlightsGridView
                     {
+                        Origin = fr.Origin.ToString(),
+                        Destination = fr.Destination.ToString(),
                         ChangesIngoing = flight.OfferItems[0].Services[0].Segments.Count() - 1,
                         ChangesOutgoing = flight.OfferItems[0].Services[1].Segments.Count() - 1,
-                        Availability = int.Parse(UiAdultsTextBox.Text) + int.Parse(UiInfantsTextBox.Text) + int.Parse(UiSeniorsTextBox.Text) + int.Parse(UiChildrenTextBox.Text),
-                        Price = double.Parse(flight.OfferItems[0].Price.Total)
+                        DepartureDate = UiDepartureDateTimePicker.Value.ToString("yyyy-MM-dd"),
+                        ReturnDate = UiReturnDateTimePicker.Value.ToString("yyyy-MM-dd"),
+                        //Availability = int.Parse(UiAdultsTextBox.Text) + int.Parse(UiInfantsTextBox.Text) + int.Parse(UiSeniorsTextBox.Text) + int.Parse(UiChildrenTextBox.Text),
+                        Price = double.Parse(flight.OfferItems[0].Price.Total, CultureInfo.InvariantCulture),
+                        Currency=UiCurrencyComboBox.SelectedItem.ToString()
                     }
                     );
                 }
@@ -117,11 +126,50 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         /// <summary>
         /// The function that fetches the JSON string from Amadeus web service and stores that JSON to an object of the class.
         /// </summary>
-        private async Task<Flight> GetDataFromAmadeusWebService(string accessToken)
+        private async Task<Flight> GetDataFromAmadeusWebService(string accessToken,string currency)
         {
             Flight flightsObject = new Flight();
-            string urlParameters = "";
-            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?destination=PAR&departureDate=2019-08-01&origin=ZAG&returnDate=2015-08-28";
+            List<string> listOfParameters = new List<string>();
+            if (fr.Origin != null)
+            {
+                listOfParameters.Add("origin="+fr.Origin+"");
+            }
+            if (fr.Destination != null)
+            {
+                listOfParameters.Add("destination=" + fr.Destination + "");
+            }
+            if (UiDepartureDateTimePicker.Value != null)
+            {
+                listOfParameters.Add("departureDate=" + UiDepartureDateTimePicker.Value.ToString("yyyy-MM-dd") + "");
+            }
+            if (UiReturnDateTimePicker.Value != null)
+            {
+                listOfParameters.Add("returnDate=" + UiReturnDateTimePicker.Value.ToString("yyyy-MM-dd") + "");
+            }
+            if (UiAdultsTextBox.Text != "" && int.Parse(UiAdultsTextBox.Text)>0)
+            {
+                listOfParameters.Add("adults="+UiAdultsTextBox.Text+"");
+            }
+            if (UiChildrenTextBox.Text != "" && int.Parse(UiChildrenTextBox.Text) > 0)
+            {
+                listOfParameters.Add("children=" + UiChildrenTextBox.Text + "");
+            }
+            if (UiInfantsTextBox.Text != "" && int.Parse(UiInfantsTextBox.Text) > 0)
+            {
+                listOfParameters.Add("infants=" + UiInfantsTextBox.Text + "");
+            }
+            if (UiSeniorsTextBox.Text != "" && int.Parse(UiSeniorsTextBox.Text) > 0)
+            {
+                listOfParameters.Add("seniors=" + UiSeniorsTextBox.Text + "");
+            }
+            if (currency != "")
+            {
+                listOfParameters.Add("currency=" + currency + "");
+            }
+            string urlParameters = String.Join("&", listOfParameters);
+            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?"+urlParameters+"";
+
+
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             using (HttpResponseMessage response = await client.GetAsync(pageUrl))
@@ -139,22 +187,32 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             }
             return flightsObject;
         }
-
+        private void RefreshRouteListBox()
+        {
+            UiCurrentSelectionListBox.Items.Clear();
+            UiCurrentSelectionListBox.Items.Add(fr.Origin+" >> "+fr.Destination);
+        }
         private void UiOriginButton_Click(object sender, EventArgs e)
         {
-
+            Iata_airport_codes selectedGridItem = (Iata_airport_codes)UiOriginIataCodeGridView.CurrentRow.DataBoundItem;
+            selectedOrigin = selectedGridItem.Code;
+            fr.Origin = selectedOrigin;
+            RefreshRouteListBox();
         }
 
         private void UiDestinationButton_Click(object sender, EventArgs e)
         {
-
+            Iata_airport_codes selectedGridItem = (Iata_airport_codes)UiOriginIataCodeGridView.CurrentRow.DataBoundItem;
+            selectedDestination = selectedGridItem.Code;
+            fr.Destination = selectedDestination;
+            RefreshRouteListBox();
         }
 
         private void UiSearchButton_Click(object sender, EventArgs e)
         {
-            
+            string selectedCurrency = UiCurrencyComboBox.SelectedValue.ToString();
             TaskFactory tf = new TaskFactory();
-            TableFilling(tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result);
+            TableFilling(tf.StartNew(() => GetDataFromAmadeusWebService(accessToken, selectedCurrency)).Result.Result);
         }
 
         private void UiOriginSearchTextBox_TextChanged(object sender, EventArgs e)
