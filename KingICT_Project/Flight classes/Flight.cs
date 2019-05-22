@@ -10,11 +10,11 @@ public class Flight
 
 public class Error
 {
-    public int status { get; set; }
-    public int code { get; set; }
-    public string title { get; set; }
-    public string detail { get; set; }
-    public Source source { get; set; }
+    public int Status { get; set; }
+    public int Code { get; set; }
+    public string Title { get; set; }
+    public string Detail { get; set; }
+    public Source Source { get; set; }
 }
 
 public class Source

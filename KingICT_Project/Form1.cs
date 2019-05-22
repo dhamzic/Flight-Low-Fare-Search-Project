@@ -106,8 +106,8 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         private async Task<Flight> GetDataFromAmadeusWebService(string accessToken)
         {
             Flight flightsObject = new Flight();
-
-            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?destination=PAR&departureDate=2019-08-01&origin=ZAG&returnDate=2019-08-28";
+            string urlParameters = "";
+            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?destination=PAR&departureDate=2019-08-01&origin=ZAG&returnDate=2015-08-28";
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             using (HttpResponseMessage response = await client.GetAsync(pageUrl))
@@ -119,7 +119,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                     flightsObject = JsonConvert.DeserializeObject<Flight>(json);
                     if (flightsObject.Errors != null)
                     {
-                        MessageBox.Show(flightsObject.Errors[0].detail, flightsObject.Errors[0].title);
+                        MessageBox.Show(flightsObject.Errors[0].Detail, flightsObject.Errors[0].Title);
                     }
                 }
             }
