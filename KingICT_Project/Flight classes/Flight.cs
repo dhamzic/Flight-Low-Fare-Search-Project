@@ -4,6 +4,22 @@ using System;
 public class Flight
 {
     public FlightInfo[] Data { get; set; }
+    public Error[] Errors { get; set; }
+}
+
+
+public class Error
+{
+    public int status { get; set; }
+    public int code { get; set; }
+    public string title { get; set; }
+    public string detail { get; set; }
+    public Source source { get; set; }
+}
+
+public class Source
+{
+    public string Parameter { get; set; }
 }
 
 public class FlightInfo

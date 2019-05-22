@@ -41,34 +41,43 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
 
         public string SelectedOrigin;
         public string SelectedDestination;
+        private string accessToken;
         public UiMainForm()
         {
+            accessToken = GetAuthorizationData().Result;
             InitializeComponent();
+            ControLInitialSettings();
 
-            string accessToken = GetAuthorizationData().Result;
+            
 
-            TaskFactory tf = new TaskFactory(); 
-            TableFilling(tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result);
+        }
 
+        private void ControLInitialSettings()
+        {
+            UiDepartureDateTimePicker.MinDate = DateTime.Now;
+            UiReturnDateTimePicker.MinDate = DateTime.Now;
         }
 
         private void TableFilling(Flight flightsObject)
         {
-            List<FlightsGridView> listOfFlights = new List<FlightsGridView>();
-            foreach (var flight in flightsObject.Data)
-            {
-                listOfFlights.Add(new FlightsGridView
-                {
-                    ChangesIngoing = flight.OfferItems[0].Services[0].Segments.Count() - 1,
-                    ChangesOutgoing = flight.OfferItems[0].Services[1].Segments.Count() - 1,
-                    Availability = int.Parse(UiAdultsTextBox.Text) + int.Parse(UiInfantsTextBox.Text) + int.Parse(UiSeniorsTextBox.Text) + int.Parse(UiChildrenTextBox.Text),
-                    Price = double.Parse(flight.OfferItems[0].Price.Total)
-                }
-                );
-            }
-
             UiSearchResultDataGridView.DataSource = null;
-            UiSearchResultDataGridView.DataSource = listOfFlights;
+
+            if (flightsObject.Data!=null)
+            {
+                List<FlightsGridView> listOfFlights = new List<FlightsGridView>();
+                foreach (var flight in flightsObject.Data)
+                {
+                    listOfFlights.Add(new FlightsGridView
+                    {
+                        ChangesIngoing = flight.OfferItems[0].Services[0].Segments.Count() - 1,
+                        ChangesOutgoing = flight.OfferItems[0].Services[1].Segments.Count() - 1,
+                        Availability = int.Parse(UiAdultsTextBox.Text) + int.Parse(UiInfantsTextBox.Text) + int.Parse(UiSeniorsTextBox.Text) + int.Parse(UiChildrenTextBox.Text),
+                        Price = double.Parse(flight.OfferItems[0].Price.Total)
+                    }
+                    );
+                }
+                UiSearchResultDataGridView.DataSource = listOfFlights;
+            }
         }
 
 
@@ -98,7 +107,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         {
             Flight flightsObject = new Flight();
 
-            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?origin=MAD&destination=ZAG&departureDate=2019-08-01&returnDate=2019-08-28";
+            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?destination=PAR&departureDate=2019-08-01&origin=ZAG&returnDate=2019-08-28";
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             using (HttpResponseMessage response = await client.GetAsync(pageUrl))
@@ -108,6 +117,10 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                 if (json != null)
                 {
                     flightsObject = JsonConvert.DeserializeObject<Flight>(json);
+                    if (flightsObject.Errors != null)
+                    {
+                        MessageBox.Show(flightsObject.Errors[0].detail, flightsObject.Errors[0].title);
+                    }
                 }
             }
             return flightsObject;
@@ -122,5 +135,13 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         {
 
         }
+
+        private void UiSearchButton_Click(object sender, EventArgs e)
+        {
+            
+            TaskFactory tf = new TaskFactory();
+            TableFilling(tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result);
+        }
+       
     }
 }
