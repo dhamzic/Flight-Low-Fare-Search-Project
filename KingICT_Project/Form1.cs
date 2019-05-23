@@ -104,6 +104,8 @@ namespace KingICT_Project
                 UiTotalRowsLabel.Text = "Total rows: " + listOfFlights.Count + "";
                 UiTotalRowsLabel.Visible = true;
                 dbAccess.InsertFlights(listOfFlights);
+                UiFetchedFromLabel.Text = "== Fetched from an Amadeus Web Service ==";
+                UiFetchedFromLabel.Visible = true;
             }
         }
 
@@ -115,6 +117,9 @@ namespace KingICT_Project
         {
             UiSearchResultDataGridView.DataSource = null;
             UiSearchResultDataGridView.DataSource = listOfFlightsFetchedFromDB;
+
+            UiFetchedFromLabel.Text = "== Fetched from a Local Database ==";
+            UiFetchedFromLabel.Visible = true;
         }
 
 
@@ -259,6 +264,7 @@ namespace KingICT_Project
             {
                 //Fetching from a local database
                 TableFillingWithDatabaseData(fetchedFlights);
+
             }
 
 
