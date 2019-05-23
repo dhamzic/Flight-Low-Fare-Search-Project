@@ -25,6 +25,7 @@ namespace KingICT_Project
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Flights> Flights { get; set; }
         public DbSet<Iata_airport_codes> Iata_airport_codes { get; set; }
     }
 }

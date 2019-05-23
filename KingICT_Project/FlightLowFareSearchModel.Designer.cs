@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Razvoj\source\repos\KingICT_Project\KingICT_Project\FlightLowFareSearchModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Domagoj Hamzić\source\repos\dhamzic\KingICT_Project\KingICT_Project\FlightLowFareSearchModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

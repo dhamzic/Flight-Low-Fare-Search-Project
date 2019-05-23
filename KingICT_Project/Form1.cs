@@ -107,6 +107,8 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                     );
                 }
                 UiSearchResultDataGridView.DataSource = listOfFlights;
+                UiTotalRowsLabel.Text = "Total rows: "+listOfFlights.Count+"";
+                UiTotalRowsLabel.Visible = true;
             }
         }
 
@@ -188,7 +190,15 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                     flightsObject = JsonConvert.DeserializeObject<Flight>(json);
                     if (flightsObject.Errors != null)
                     {
-                        MessageBox.Show(flightsObject.Errors[0].Detail, flightsObject.Errors[0].Title);
+                        List<string> listOfErrors = new List<string>();
+                        int counter = 1;
+                        foreach (var error in flightsObject.Errors)
+                        {
+                            listOfErrors.Add(counter+". "+ error.Detail+" ("+error.Source.Parameter+")");
+                            counter++;
+                        }
+                        string errors = string.Join("\n", listOfErrors);
+                        MessageBox.Show(errors, "Insert Error");
                     }
                 }
             }
