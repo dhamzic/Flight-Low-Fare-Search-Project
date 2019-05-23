@@ -43,6 +43,17 @@ namespace KingICT_Project
 
 
         }
+        public List<Flights> FetchFlights(Flights insertedArguments)
+        {
+            List<Flights> listOfFetchedFlights = new List<Flights>();
+            using (var db = new FlightsDBEntities())
+            {
+                var condition = db.Flights.Where(f => f.Origin == insertedArguments.Origin && f.Destination == insertedArguments.Destination && f.Currency == insertedArguments.Currency && f.DepartureDate == insertedArguments.DepartureDate && f.ReturnDate == insertedArguments.ReturnDate);
+                listOfFetchedFlights = new List<Flights>(condition);
+            }
+
+            return listOfFetchedFlights;
+        }
     }
 
 }
