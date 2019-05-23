@@ -9,6 +9,11 @@ namespace KingICT_Project
 {
     public class DataBaseOp : FlightsDBEntities
     {
+        /// <summary>
+        /// This function fetches Iata airport codes from a database
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
         public BindingList<Iata_airport_codes> FetchSpecificIataCodes(string keyWord)
         {
             BindingList<Iata_airport_codes> listOfIataCodes = null;
@@ -30,6 +35,10 @@ namespace KingICT_Project
             return listOfIataCodes;
 
         }
+        /// <summary>
+        /// This functions inserts returned flights data from Amadeus Web Service
+        /// </summary>
+        /// <param name="listOfFlights"></param>
         public void InsertFlights(List<Flights> listOfFlights)
         {
             using (var db = new FlightsDBEntities())
@@ -43,6 +52,12 @@ namespace KingICT_Project
 
 
         }
+
+        /// <summary>
+        /// This function fetches familiar flights from database. In the case of repeated search, the app fetches from local database.
+        /// </summary>
+        /// <param name="insertedArguments"></param>
+        /// <returns></returns>
         public List<Flights> FetchFlights(Flights insertedArguments)
         {
             List<Flights> listOfFetchedFlights = new List<Flights>();

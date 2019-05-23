@@ -17,29 +17,6 @@ namespace KingICT_Project
 {
     public partial class UiMainForm : Form
     {
-
-        /*
-
-Potrebno je napraviti aplikaciju za pretraživanje cijena low-cost avionskih letova. Cijene letova se moraju moći pretraživati po:
-    •	        polaznom aerodromu (prema IATA šifri aerodroma)
-    •	        odredišnom aerodromu (prema IATA šifri aerodroma)
-    •	        datumu polaska/povratka
-    •	        broju putnika
-    •	        valuti (USD, EUR, HRK)
-
-Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebno prikazati:
-    •	polazni aerodrom
-    •	odredišni aerodrom
-    •	datum polaska/povratka
-    •	broj presjedanja u odlaznom/povratnom putovanju
-    •	broj putnika
-    •	valuta
-    •	ukupna cijena
- 
-             
-             
-             */
-
         public string selectedOrigin;
         public string selectedDestination;
         private string accessToken;
@@ -51,26 +28,23 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
 
             InitializeComponent();
 
-
-
-
-
-
-
-
             CurrencyFilling();
             IataTableFilling();
             ControLInitialSettings();
-
-
-
         }
 
+        /// <summary>
+        /// This function sets a minimum value of the date picker control to today's date
+        /// </summary>
         private void ControLInitialSettings()
         {
             UiDepartureDateTimePicker.MinDate = DateTime.Now;
             UiReturnDateTimePicker.MinDate = DateTime.Now;
         }
+
+        /// <summary>
+        /// This function fills combo box control with allowed currency values
+        /// </summary>
         private void CurrencyFilling()
         {
             List<string> CurrencyList = new List<string>();
@@ -80,11 +54,20 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             UiCurrencyComboBox.DataSource = null;
             UiCurrencyComboBox.DataSource = CurrencyList;
         }
+
+        /// <summary>
+        /// This function fills table control with fetched Iata codes values
+        /// </summary>
         private void IataTableFilling()
         {
             UiOriginIataCodeGridView.DataSource = null;
             UiOriginIataCodeGridView.DataSource = dbAccess.FetchSpecificIataCodes(String.Empty);
         }
+
+        /// <summary>
+        /// This function fills table control with fetched flights from the Amadeus Web Service
+        /// </summary>
+        /// <param name="flightsObject"></param>
         private void TableFillingWithWebServiceData(Flight flightsObject)
         {
             UiSearchResultDataGridView.DataSource = null;
@@ -123,6 +106,11 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                 dbAccess.InsertFlights(listOfFlights);
             }
         }
+
+        /// <summary>
+        /// This function fills table control with fetched flights from a local database
+        /// </summary>
+        /// <param name="listOfFlightsFetchedFromDB"></param>
         private void TableFillingWithDatabaseData(List<Flights> listOfFlightsFetchedFromDB)
         {
             UiSearchResultDataGridView.DataSource = null;
@@ -156,6 +144,8 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         {
             Flight flightsObject = new Flight();
             List<string> listOfParameters = new List<string>();
+
+            //Adding parameters to list of parameters
             if (flightConditions.Origin != null)
             {
                 listOfParameters.Add("origin=" + flightConditions.Origin + "");
@@ -192,6 +182,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             {
                 listOfParameters.Add("currency=" + flightConditions.Currency + "");
             }
+
             string urlParameters = String.Join("&", listOfParameters);
             string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?" + urlParameters + "";
 
@@ -221,11 +212,17 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             }
             return flightsObject;
         }
+
+        /// <summary>
+        /// This function refreshes Listbox with origin and destination values.
+        /// </summary>
         private void RefreshRouteListBox()
         {
             UiCurrentSelectionListBox.Items.Clear();
             UiCurrentSelectionListBox.Items.Add(flightConditions.Origin + " >> " + flightConditions.Destination);
         }
+
+        
         private void UiOriginButton_Click(object sender, EventArgs e)
         {
             Iata_airport_codes selectedGridItem = (Iata_airport_codes)UiOriginIataCodeGridView.CurrentRow.DataBoundItem;
@@ -251,14 +248,16 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             flightConditions.DepartureDate = UiDepartureDateTimePicker.Value.Date;
             flightConditions.ReturnDate = UiReturnDateTimePicker.Value.Date;
 
-            //DataBase check, first
+            //Local DataBase check, first
             List<Flights> fetchedFlights = dbAccess.FetchFlights(flightConditions);
             if (fetchedFlights.Count == 0)
             {
+                //Fetching from the Amadeus Web Service
                 TableFillingWithWebServiceData(tf.StartNew(() => GetDataFromAmadeusWebService(accessToken)).Result.Result);
             }
             else
             {
+                //Fetching from a local database
                 TableFillingWithDatabaseData(fetchedFlights);
             }
 

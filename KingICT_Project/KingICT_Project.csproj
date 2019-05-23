@@ -68,7 +68,6 @@
     <Compile Include="DataBaseOp.cs" />
     <Compile Include="Flight classes\Authorization.cs" />
     <Compile Include="Flight classes\Flight.cs" />
-    <Compile Include="Flight classes\FlightRoute.cs" />
     <Compile Include="Flight classes\FlightsGridView.cs" />
     <Compile Include="FlightLowFareSearchModel.Context.cs">
       <AutoGen>True</AutoGen>
