@@ -48,9 +48,29 @@ public class Service
 
 public class Segment
 {
-    public Flightsegment FlightSegment { get; set; }
-}
+    public Flightsegment FlightSegment { get; set; } 
+    public PricingDetailPerAdult PricingDetailPerAdult { get; set; }
+    public PricingDetailPerInfant PricingDetailPerInfant { get; set; }
+    public PricingDetailPerChild PricingDetailPerChild { get; set; }
+    public PricingDetailPerSenior PricingDetailPerSenior { get; set; }
 
+}
+public class PricingDetailPerAdult
+{
+    public string Availability { get; set; }
+}
+public class PricingDetailPerInfant
+{
+    public string Availability { get; set; }
+}
+public class PricingDetailPerChild
+{
+    public string Availability { get; set; }
+}
+public class PricingDetailPerSenior
+{
+    public string Availability { get; set; }
+}
 public class Flightsegment
 {
     public Departure Departure { get; set; }
@@ -87,10 +107,4 @@ public class Operating
     public string Number { get; set; }
 }
 
-public class Pricingdetailperadult
-{
-    public string TravelClass { get; set; }
-    public string FareClass { get; set; }
-    public int Availability { get; set; }
-    public string FareBasis { get; set; }
-}
+

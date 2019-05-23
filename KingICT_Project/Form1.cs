@@ -53,7 +53,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             IataTableFilling();
             ControLInitialSettings();
 
-            
+
 
         }
 
@@ -80,7 +80,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         {
             UiSearchResultDataGridView.DataSource = null;
 
-            if (flightsObject.Data!=null)
+            if (flightsObject.Data != null)
             {
                 List<FlightsGridView> listOfFlights = new List<FlightsGridView>();
                 foreach (var flight in flightsObject.Data)
@@ -89,13 +89,20 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                     {
                         Origin = fr.Origin.ToString(),
                         Destination = fr.Destination.ToString(),
-                        ChangesIngoing = flight.OfferItems[0].Services[0].Segments.Count() - 1,
-                        ChangesOutgoing = flight.OfferItems[0].Services[1].Segments.Count() - 1,
-                        DepartureDate = UiDepartureDateTimePicker.Value.ToString("yyyy-MM-dd"),
-                        ReturnDate = UiReturnDateTimePicker.Value.ToString("yyyy-MM-dd"),
-                        //Availability = int.Parse(UiAdultsTextBox.Text) + int.Parse(UiInfantsTextBox.Text) + int.Parse(UiSeniorsTextBox.Text) + int.Parse(UiChildrenTextBox.Text),
+                        ChangesIngoing = flight.OfferItems[0].Services[1].Segments.Count() - 1,
+                        ChangesOutgoing = flight.OfferItems[0].Services[0].Segments.Count() - 1,
+                        DepartureDate = UiDepartureDateTimePicker.Value.ToString("dd. MM. yyyy."),
+                        ReturnDate = UiReturnDateTimePicker.Value.ToString("dd. MM. yyyy."),
+                        AdultAvailabilityOut = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult.Availability.ToString(),
+                        ChildrenAvailabilityOut = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild.Availability.ToString(),
+                        InfantsAvailabilityOut = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant.Availability.ToString(),
+                        SeniorsAvailabilityOut = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior.Availability.ToString(),
+                        AdultAvailabilityIn = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerAdult == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult.Availability.ToString(),
+                        ChildrenAvailabilityIn = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerChild == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild.Availability.ToString(),
+                        InfantsAvailabilityIn = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerInfant == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant.Availability.ToString(),
+                        SeniorsAvailabilityIn = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerSenior == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior.Availability.ToString(),
                         Price = double.Parse(flight.OfferItems[0].Price.Total, CultureInfo.InvariantCulture),
-                        Currency=UiCurrencyComboBox.SelectedItem.ToString()
+                        Currency = UiCurrencyComboBox.SelectedItem.ToString()
                     }
                     );
                 }
@@ -126,13 +133,13 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         /// <summary>
         /// The function that fetches the JSON string from Amadeus web service and stores that JSON to an object of the class.
         /// </summary>
-        private async Task<Flight> GetDataFromAmadeusWebService(string accessToken,string currency)
+        private async Task<Flight> GetDataFromAmadeusWebService(string accessToken, string currency)
         {
             Flight flightsObject = new Flight();
             List<string> listOfParameters = new List<string>();
             if (fr.Origin != null)
             {
-                listOfParameters.Add("origin="+fr.Origin+"");
+                listOfParameters.Add("origin=" + fr.Origin + "");
             }
             if (fr.Destination != null)
             {
@@ -146,9 +153,9 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
             {
                 listOfParameters.Add("returnDate=" + UiReturnDateTimePicker.Value.ToString("yyyy-MM-dd") + "");
             }
-            if (UiAdultsTextBox.Text != "" && int.Parse(UiAdultsTextBox.Text)>0)
+            if (UiAdultsTextBox.Text != "" && int.Parse(UiAdultsTextBox.Text) > 0)
             {
-                listOfParameters.Add("adults="+UiAdultsTextBox.Text+"");
+                listOfParameters.Add("adults=" + UiAdultsTextBox.Text + "");
             }
             if (UiChildrenTextBox.Text != "" && int.Parse(UiChildrenTextBox.Text) > 0)
             {
@@ -167,7 +174,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                 listOfParameters.Add("currency=" + currency + "");
             }
             string urlParameters = String.Join("&", listOfParameters);
-            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?"+urlParameters+"";
+            string pageUrl = @"https://test.api.amadeus.com/v1/shopping/flight-offers?" + urlParameters + "";
 
 
             HttpClient client = new HttpClient();
@@ -190,7 +197,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         private void RefreshRouteListBox()
         {
             UiCurrentSelectionListBox.Items.Clear();
-            UiCurrentSelectionListBox.Items.Add(fr.Origin+" >> "+fr.Destination);
+            UiCurrentSelectionListBox.Items.Add(fr.Origin + " >> " + fr.Destination);
         }
         private void UiOriginButton_Click(object sender, EventArgs e)
         {
