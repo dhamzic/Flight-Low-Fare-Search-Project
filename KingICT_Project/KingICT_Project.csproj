@@ -107,7 +107,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="FlightLowFareSearchModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -144,8 +143,6 @@
       <DependentUpon>FlightLowFareSearchModel.edmx</DependentUpon>
       <LastGenOutput>FlightLowFareSearchModel.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\King ICT Logo.png" />
-    <None Include="Resources\Amadeus Logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
