@@ -120,6 +120,7 @@
       <DependentUpon>FlightLowFareSearchModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Flights.datasource" />
     <None Include="Properties\DataSources\FlightsDBEntities.datasource" />
     <None Include="Properties\DataSources\Iata_airport_codes.datasource" />
     <None Include="Properties\DataSources\KingICT_Project.Flight_classes.FlightsGridView.datasource" />

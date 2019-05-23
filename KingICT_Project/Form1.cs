@@ -44,11 +44,20 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         public string selectedDestination;
         private string accessToken;
         private FlightRoute fr = new FlightRoute();
+        DataBaseOp dbAccess = new DataBaseOp();
         public UiMainForm()
         {
             accessToken = GetAuthorizationData().Result;
 
             InitializeComponent();
+
+
+
+                
+            
+
+
+
             CurrencyFilling();
             IataTableFilling();
             ControLInitialSettings();
@@ -74,7 +83,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         private void IataTableFilling()
         {
             UiOriginIataCodeGridView.DataSource = null;
-            UiOriginIataCodeGridView.DataSource = DataBaseOp.FetchSpecificIataCodes(String.Empty);
+            UiOriginIataCodeGridView.DataSource = dbAccess.FetchSpecificIataCodes(String.Empty);
         }
         private void TableFilling(Flight flightsObject)
         {
@@ -82,33 +91,36 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
 
             if (flightsObject.Data != null)
             {
-                List<FlightsGridView> listOfFlights = new List<FlightsGridView>();
+                List<Flights> listOfFlights = new List<Flights>();
                 foreach (var flight in flightsObject.Data)
                 {
-                    listOfFlights.Add(new FlightsGridView
+                    listOfFlights.Add(new Flights
                     {
                         Origin = fr.Origin.ToString(),
                         Destination = fr.Destination.ToString(),
-                        ChangesIngoing = flight.OfferItems[0].Services[1].Segments.Count() - 1,
-                        ChangesOutgoing = flight.OfferItems[0].Services[0].Segments.Count() - 1,
-                        DepartureDate = UiDepartureDateTimePicker.Value.ToString("dd. MM. yyyy."),
-                        ReturnDate = UiReturnDateTimePicker.Value.ToString("dd. MM. yyyy."),
-                        AdultAvailabilityOut = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult.Availability.ToString(),
-                        ChildrenAvailabilityOut = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild.Availability.ToString(),
-                        InfantsAvailabilityOut = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant.Availability.ToString(),
-                        SeniorsAvailabilityOut = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior.Availability.ToString(),
-                        AdultAvailabilityIn = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerAdult == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult.Availability.ToString(),
-                        ChildrenAvailabilityIn = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerChild == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild.Availability.ToString(),
-                        InfantsAvailabilityIn = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerInfant == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant.Availability.ToString(),
-                        SeniorsAvailabilityIn = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerSenior == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior.Availability.ToString(),
+                        StopsIngoing = flight.OfferItems[0].Services[1].Segments.Count() - 1,
+                        StopsOutgoing = flight.OfferItems[0].Services[0].Segments.Count() - 1,
+                        DepartureDate = UiDepartureDateTimePicker.Value.Date,
+                        ReturnDate = UiReturnDateTimePicker.Value.Date,
+                        AdultAvailabilityOutgoing = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult.Availability.ToString(),
+                        ChildrenAvailabilityOutgoing = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild.Availability.ToString(),
+                        InfantsAvailabilityOutgoing = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant.Availability.ToString(),
+                        SeniorsAvailabilityOutgoing = flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior.Availability.ToString(),
+                        AdultAvailabilityIngoing = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerAdult == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerAdult.Availability.ToString(),
+                        ChildrenAvailabilityIngoing = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerChild == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerChild.Availability.ToString(),
+                        InfantsAvailabilityIngoing = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerInfant == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant.Availability.ToString(),
+                        SeniorsAvailabilityIngoing = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerSenior == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior.Availability.ToString(),
                         Price = double.Parse(flight.OfferItems[0].Price.Total, CultureInfo.InvariantCulture),
                         Currency = UiCurrencyComboBox.SelectedItem.ToString()
-                    }
-                    );
+                    });
+
+
+
                 }
                 UiSearchResultDataGridView.DataSource = listOfFlights;
-                UiTotalRowsLabel.Text = "Total rows: "+listOfFlights.Count+"";
+                UiTotalRowsLabel.Text = "Total rows: " + listOfFlights.Count + "";
                 UiTotalRowsLabel.Visible = true;
+                dbAccess.InsertFlights(listOfFlights);
             }
         }
 
@@ -194,7 +206,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
                         int counter = 1;
                         foreach (var error in flightsObject.Errors)
                         {
-                            listOfErrors.Add(counter+". "+ error.Detail+" ("+error.Source.Parameter+")");
+                            listOfErrors.Add(counter + ". " + error.Detail + " (" + error.Source.Parameter + ")");
                             counter++;
                         }
                         string errors = string.Join("\n", listOfErrors);
@@ -235,7 +247,7 @@ Rezultate je potrebno tablično prikazati na ekranu, vrijednosti koje je potrebn
         private void UiOriginSearchTextBox_TextChanged(object sender, EventArgs e)
         {
             UiOriginIataCodeGridView.DataSource = null;
-            UiOriginIataCodeGridView.DataSource = DataBaseOp.FetchSpecificIataCodes(UiOriginSearchTextBox.Text);
+            UiOriginIataCodeGridView.DataSource = dbAccess.FetchSpecificIataCodes(UiOriginSearchTextBox.Text);
         }
     }
 }

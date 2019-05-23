@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.UiChildrenTextBox = new System.Windows.Forms.TextBox();
@@ -55,37 +53,38 @@
             this.UiOriginSearchTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.UiOriginIataCodeGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.UiSearchResultDataGridView = new System.Windows.Forms.DataGridView();
-            this.UiTotalRowsLabel = new System.Windows.Forms.Label();
-            this.originDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.destinationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departureDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.changesOutgoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.changesIngoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adultAvailabilityOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.childrenAvailabilityOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.infantsAvailabilityOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seniorsAvailabilityOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adultAvailabilityInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.childrenAvailabilityInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.infantsAvailabilityInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seniorsAvailabilityInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flightsGridViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.airportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iataairportcodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.UiSearchResultDataGridView = new System.Windows.Forms.DataGridView();
+            this.UiTotalRowsLabel = new System.Windows.Forms.Label();
+            this.flightsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.originDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.destinationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departureDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stopsOutgoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stopsIngoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adultAvailabilityIngoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.childrenAvailabilityIngoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.infantsAvailabilityIngoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seniorsAvailabilityIngoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adultAvailabilityOutgoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.childrenAvailabilityOutgoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.infantsAvailabilityOutgoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seniorsAvailabilityOutgoingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UiOriginIataCodeGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iataairportcodesBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UiSearchResultDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flightsGridViewBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iataairportcodesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -377,206 +376,6 @@
             this.UiOriginIataCodeGridView.Size = new System.Drawing.Size(307, 283);
             this.UiOriginIataCodeGridView.TabIndex = 0;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.UiSearchResultDataGridView);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox3.Location = new System.Drawing.Point(17, 468);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(947, 331);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Search results";
-            // 
-            // UiSearchResultDataGridView
-            // 
-            this.UiSearchResultDataGridView.AllowUserToAddRows = false;
-            this.UiSearchResultDataGridView.AllowUserToDeleteRows = false;
-            this.UiSearchResultDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UiSearchResultDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.UiSearchResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UiSearchResultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.originDataGridViewTextBoxColumn,
-            this.destinationDataGridViewTextBoxColumn,
-            this.departureDateDataGridViewTextBoxColumn,
-            this.returnDateDataGridViewTextBoxColumn,
-            this.changesOutgoingDataGridViewTextBoxColumn,
-            this.changesIngoingDataGridViewTextBoxColumn,
-            this.adultAvailabilityOutDataGridViewTextBoxColumn,
-            this.childrenAvailabilityOutDataGridViewTextBoxColumn,
-            this.infantsAvailabilityOutDataGridViewTextBoxColumn,
-            this.seniorsAvailabilityOutDataGridViewTextBoxColumn,
-            this.adultAvailabilityInDataGridViewTextBoxColumn,
-            this.childrenAvailabilityInDataGridViewTextBoxColumn,
-            this.infantsAvailabilityInDataGridViewTextBoxColumn,
-            this.seniorsAvailabilityInDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.currencyDataGridViewTextBoxColumn});
-            this.UiSearchResultDataGridView.DataSource = this.flightsGridViewBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UiSearchResultDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.UiSearchResultDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UiSearchResultDataGridView.Location = new System.Drawing.Point(4, 27);
-            this.UiSearchResultDataGridView.Margin = new System.Windows.Forms.Padding(4);
-            this.UiSearchResultDataGridView.Name = "UiSearchResultDataGridView";
-            this.UiSearchResultDataGridView.ReadOnly = true;
-            this.UiSearchResultDataGridView.RowHeadersVisible = false;
-            this.UiSearchResultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.UiSearchResultDataGridView.Size = new System.Drawing.Size(939, 300);
-            this.UiSearchResultDataGridView.TabIndex = 0;
-            // 
-            // UiTotalRowsLabel
-            // 
-            this.UiTotalRowsLabel.AutoSize = true;
-            this.UiTotalRowsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UiTotalRowsLabel.Location = new System.Drawing.Point(836, 803);
-            this.UiTotalRowsLabel.Name = "UiTotalRowsLabel";
-            this.UiTotalRowsLabel.Size = new System.Drawing.Size(130, 20);
-            this.UiTotalRowsLabel.TabIndex = 23;
-            this.UiTotalRowsLabel.Text = "Total Rows: 561";
-            this.UiTotalRowsLabel.Visible = false;
-            // 
-            // originDataGridViewTextBoxColumn
-            // 
-            this.originDataGridViewTextBoxColumn.DataPropertyName = "Origin";
-            this.originDataGridViewTextBoxColumn.HeaderText = "Origin";
-            this.originDataGridViewTextBoxColumn.Name = "originDataGridViewTextBoxColumn";
-            this.originDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // destinationDataGridViewTextBoxColumn
-            // 
-            this.destinationDataGridViewTextBoxColumn.DataPropertyName = "Destination";
-            this.destinationDataGridViewTextBoxColumn.HeaderText = "Destination";
-            this.destinationDataGridViewTextBoxColumn.Name = "destinationDataGridViewTextBoxColumn";
-            this.destinationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // departureDateDataGridViewTextBoxColumn
-            // 
-            this.departureDateDataGridViewTextBoxColumn.DataPropertyName = "DepartureDate";
-            this.departureDateDataGridViewTextBoxColumn.HeaderText = "Departure Date";
-            this.departureDateDataGridViewTextBoxColumn.Name = "departureDateDataGridViewTextBoxColumn";
-            this.departureDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // returnDateDataGridViewTextBoxColumn
-            // 
-            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
-            this.returnDateDataGridViewTextBoxColumn.HeaderText = "Return Date";
-            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
-            this.returnDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // changesOutgoingDataGridViewTextBoxColumn
-            // 
-            this.changesOutgoingDataGridViewTextBoxColumn.DataPropertyName = "ChangesOutgoing";
-            this.changesOutgoingDataGridViewTextBoxColumn.HeaderText = "Stops Out.";
-            this.changesOutgoingDataGridViewTextBoxColumn.Name = "changesOutgoingDataGridViewTextBoxColumn";
-            this.changesOutgoingDataGridViewTextBoxColumn.ReadOnly = true;
-            this.changesOutgoingDataGridViewTextBoxColumn.ToolTipText = "Stops Outgoing";
-            // 
-            // changesIngoingDataGridViewTextBoxColumn
-            // 
-            this.changesIngoingDataGridViewTextBoxColumn.DataPropertyName = "ChangesIngoing";
-            this.changesIngoingDataGridViewTextBoxColumn.HeaderText = "Stops In.";
-            this.changesIngoingDataGridViewTextBoxColumn.Name = "changesIngoingDataGridViewTextBoxColumn";
-            this.changesIngoingDataGridViewTextBoxColumn.ReadOnly = true;
-            this.changesIngoingDataGridViewTextBoxColumn.ToolTipText = "Stops Ingoing";
-            // 
-            // adultAvailabilityOutDataGridViewTextBoxColumn
-            // 
-            this.adultAvailabilityOutDataGridViewTextBoxColumn.DataPropertyName = "AdultAvailabilityOut";
-            this.adultAvailabilityOutDataGridViewTextBoxColumn.HeaderText = "Adult Av. Out.";
-            this.adultAvailabilityOutDataGridViewTextBoxColumn.Name = "adultAvailabilityOutDataGridViewTextBoxColumn";
-            this.adultAvailabilityOutDataGridViewTextBoxColumn.ReadOnly = true;
-            this.adultAvailabilityOutDataGridViewTextBoxColumn.ToolTipText = "The number of available seats/tickets left for outgoing flight for Adults.";
-            // 
-            // childrenAvailabilityOutDataGridViewTextBoxColumn
-            // 
-            this.childrenAvailabilityOutDataGridViewTextBoxColumn.DataPropertyName = "ChildrenAvailabilityOut";
-            this.childrenAvailabilityOutDataGridViewTextBoxColumn.HeaderText = "Children Av. Out.";
-            this.childrenAvailabilityOutDataGridViewTextBoxColumn.Name = "childrenAvailabilityOutDataGridViewTextBoxColumn";
-            this.childrenAvailabilityOutDataGridViewTextBoxColumn.ReadOnly = true;
-            this.childrenAvailabilityOutDataGridViewTextBoxColumn.ToolTipText = "The number of available seats/tickets left for outgoing flight for Children.";
-            // 
-            // infantsAvailabilityOutDataGridViewTextBoxColumn
-            // 
-            this.infantsAvailabilityOutDataGridViewTextBoxColumn.DataPropertyName = "InfantsAvailabilityOut";
-            this.infantsAvailabilityOutDataGridViewTextBoxColumn.HeaderText = "Infants Av. Out.";
-            this.infantsAvailabilityOutDataGridViewTextBoxColumn.Name = "infantsAvailabilityOutDataGridViewTextBoxColumn";
-            this.infantsAvailabilityOutDataGridViewTextBoxColumn.ReadOnly = true;
-            this.infantsAvailabilityOutDataGridViewTextBoxColumn.ToolTipText = "The number of available seats/tickets left for outgoing flight for Infants.";
-            // 
-            // seniorsAvailabilityOutDataGridViewTextBoxColumn
-            // 
-            this.seniorsAvailabilityOutDataGridViewTextBoxColumn.DataPropertyName = "SeniorsAvailabilityOut";
-            this.seniorsAvailabilityOutDataGridViewTextBoxColumn.HeaderText = "Seniors Av. Out.";
-            this.seniorsAvailabilityOutDataGridViewTextBoxColumn.Name = "seniorsAvailabilityOutDataGridViewTextBoxColumn";
-            this.seniorsAvailabilityOutDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seniorsAvailabilityOutDataGridViewTextBoxColumn.ToolTipText = "The number of available seats/tickets left for outgoing flight for Seniors.";
-            // 
-            // adultAvailabilityInDataGridViewTextBoxColumn
-            // 
-            this.adultAvailabilityInDataGridViewTextBoxColumn.DataPropertyName = "AdultAvailabilityIn";
-            this.adultAvailabilityInDataGridViewTextBoxColumn.HeaderText = "Adult Av. In.";
-            this.adultAvailabilityInDataGridViewTextBoxColumn.Name = "adultAvailabilityInDataGridViewTextBoxColumn";
-            this.adultAvailabilityInDataGridViewTextBoxColumn.ReadOnly = true;
-            this.adultAvailabilityInDataGridViewTextBoxColumn.ToolTipText = "The number of available seats/tickets left for ingoing flight for Adults.";
-            // 
-            // childrenAvailabilityInDataGridViewTextBoxColumn
-            // 
-            this.childrenAvailabilityInDataGridViewTextBoxColumn.DataPropertyName = "ChildrenAvailabilityIn";
-            this.childrenAvailabilityInDataGridViewTextBoxColumn.HeaderText = "Children Av. In.";
-            this.childrenAvailabilityInDataGridViewTextBoxColumn.Name = "childrenAvailabilityInDataGridViewTextBoxColumn";
-            this.childrenAvailabilityInDataGridViewTextBoxColumn.ReadOnly = true;
-            this.childrenAvailabilityInDataGridViewTextBoxColumn.ToolTipText = "The number of available seats/tickets left for ingoing flight for Children.";
-            // 
-            // infantsAvailabilityInDataGridViewTextBoxColumn
-            // 
-            this.infantsAvailabilityInDataGridViewTextBoxColumn.DataPropertyName = "InfantsAvailabilityIn";
-            this.infantsAvailabilityInDataGridViewTextBoxColumn.HeaderText = "Infants Av. In.";
-            this.infantsAvailabilityInDataGridViewTextBoxColumn.Name = "infantsAvailabilityInDataGridViewTextBoxColumn";
-            this.infantsAvailabilityInDataGridViewTextBoxColumn.ReadOnly = true;
-            this.infantsAvailabilityInDataGridViewTextBoxColumn.ToolTipText = "The number of available seats/tickets left for ingoing flight for Infants.";
-            // 
-            // seniorsAvailabilityInDataGridViewTextBoxColumn
-            // 
-            this.seniorsAvailabilityInDataGridViewTextBoxColumn.DataPropertyName = "SeniorsAvailabilityIn";
-            this.seniorsAvailabilityInDataGridViewTextBoxColumn.HeaderText = "Seniors Av. In.";
-            this.seniorsAvailabilityInDataGridViewTextBoxColumn.Name = "seniorsAvailabilityInDataGridViewTextBoxColumn";
-            this.seniorsAvailabilityInDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seniorsAvailabilityInDataGridViewTextBoxColumn.ToolTipText = "The number of available seats/tickets left for ingoing flight for Seniors.";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // currencyDataGridViewTextBoxColumn
-            // 
-            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
-            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
-            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
-            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // flightsGridViewBindingSource
-            // 
-            this.flightsGridViewBindingSource.DataSource = typeof(KingICT_Project.Flight_classes.FlightsGridView);
-            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -605,6 +404,189 @@
             // 
             this.iataairportcodesBindingSource.DataSource = typeof(KingICT_Project.Iata_airport_codes);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.UiSearchResultDataGridView);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox3.Location = new System.Drawing.Point(17, 468);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(947, 331);
+            this.groupBox3.TabIndex = 22;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Search results";
+            // 
+            // UiSearchResultDataGridView
+            // 
+            this.UiSearchResultDataGridView.AllowUserToAddRows = false;
+            this.UiSearchResultDataGridView.AllowUserToDeleteRows = false;
+            this.UiSearchResultDataGridView.AutoGenerateColumns = false;
+            this.UiSearchResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UiSearchResultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn1,
+            this.originDataGridViewTextBoxColumn,
+            this.destinationDataGridViewTextBoxColumn,
+            this.departureDateDataGridViewTextBoxColumn,
+            this.returnDateDataGridViewTextBoxColumn,
+            this.stopsOutgoingDataGridViewTextBoxColumn,
+            this.stopsIngoingDataGridViewTextBoxColumn,
+            this.adultAvailabilityIngoingDataGridViewTextBoxColumn,
+            this.childrenAvailabilityIngoingDataGridViewTextBoxColumn,
+            this.infantsAvailabilityIngoingDataGridViewTextBoxColumn,
+            this.seniorsAvailabilityIngoingDataGridViewTextBoxColumn,
+            this.adultAvailabilityOutgoingDataGridViewTextBoxColumn,
+            this.childrenAvailabilityOutgoingDataGridViewTextBoxColumn,
+            this.infantsAvailabilityOutgoingDataGridViewTextBoxColumn,
+            this.seniorsAvailabilityOutgoingDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.currencyDataGridViewTextBoxColumn});
+            this.UiSearchResultDataGridView.DataSource = this.flightsBindingSource;
+            this.UiSearchResultDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UiSearchResultDataGridView.Location = new System.Drawing.Point(4, 27);
+            this.UiSearchResultDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.UiSearchResultDataGridView.Name = "UiSearchResultDataGridView";
+            this.UiSearchResultDataGridView.ReadOnly = true;
+            this.UiSearchResultDataGridView.RowHeadersVisible = false;
+            this.UiSearchResultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.UiSearchResultDataGridView.Size = new System.Drawing.Size(939, 300);
+            this.UiSearchResultDataGridView.TabIndex = 0;
+            // 
+            // UiTotalRowsLabel
+            // 
+            this.UiTotalRowsLabel.AutoSize = true;
+            this.UiTotalRowsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UiTotalRowsLabel.Location = new System.Drawing.Point(836, 803);
+            this.UiTotalRowsLabel.Name = "UiTotalRowsLabel";
+            this.UiTotalRowsLabel.Size = new System.Drawing.Size(130, 20);
+            this.UiTotalRowsLabel.TabIndex = 23;
+            this.UiTotalRowsLabel.Text = "Total Rows: 561";
+            this.UiTotalRowsLabel.Visible = false;
+            // 
+            // flightsBindingSource
+            // 
+            this.flightsBindingSource.DataSource = typeof(KingICT_Project.Flights);
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // originDataGridViewTextBoxColumn
+            // 
+            this.originDataGridViewTextBoxColumn.DataPropertyName = "Origin";
+            this.originDataGridViewTextBoxColumn.HeaderText = "Origin";
+            this.originDataGridViewTextBoxColumn.Name = "originDataGridViewTextBoxColumn";
+            this.originDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // destinationDataGridViewTextBoxColumn
+            // 
+            this.destinationDataGridViewTextBoxColumn.DataPropertyName = "Destination";
+            this.destinationDataGridViewTextBoxColumn.HeaderText = "Destination";
+            this.destinationDataGridViewTextBoxColumn.Name = "destinationDataGridViewTextBoxColumn";
+            this.destinationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departureDateDataGridViewTextBoxColumn
+            // 
+            this.departureDateDataGridViewTextBoxColumn.DataPropertyName = "DepartureDate";
+            this.departureDateDataGridViewTextBoxColumn.HeaderText = "DepartureDate";
+            this.departureDateDataGridViewTextBoxColumn.Name = "departureDateDataGridViewTextBoxColumn";
+            this.departureDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // returnDateDataGridViewTextBoxColumn
+            // 
+            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            this.returnDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stopsOutgoingDataGridViewTextBoxColumn
+            // 
+            this.stopsOutgoingDataGridViewTextBoxColumn.DataPropertyName = "StopsOutgoing";
+            this.stopsOutgoingDataGridViewTextBoxColumn.HeaderText = "StopsOutgoing";
+            this.stopsOutgoingDataGridViewTextBoxColumn.Name = "stopsOutgoingDataGridViewTextBoxColumn";
+            this.stopsOutgoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stopsIngoingDataGridViewTextBoxColumn
+            // 
+            this.stopsIngoingDataGridViewTextBoxColumn.DataPropertyName = "StopsIngoing";
+            this.stopsIngoingDataGridViewTextBoxColumn.HeaderText = "StopsIngoing";
+            this.stopsIngoingDataGridViewTextBoxColumn.Name = "stopsIngoingDataGridViewTextBoxColumn";
+            this.stopsIngoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // adultAvailabilityIngoingDataGridViewTextBoxColumn
+            // 
+            this.adultAvailabilityIngoingDataGridViewTextBoxColumn.DataPropertyName = "AdultAvailabilityIngoing";
+            this.adultAvailabilityIngoingDataGridViewTextBoxColumn.HeaderText = "AdultAvailabilityIngoing";
+            this.adultAvailabilityIngoingDataGridViewTextBoxColumn.Name = "adultAvailabilityIngoingDataGridViewTextBoxColumn";
+            this.adultAvailabilityIngoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // childrenAvailabilityIngoingDataGridViewTextBoxColumn
+            // 
+            this.childrenAvailabilityIngoingDataGridViewTextBoxColumn.DataPropertyName = "ChildrenAvailabilityIngoing";
+            this.childrenAvailabilityIngoingDataGridViewTextBoxColumn.HeaderText = "ChildrenAvailabilityIngoing";
+            this.childrenAvailabilityIngoingDataGridViewTextBoxColumn.Name = "childrenAvailabilityIngoingDataGridViewTextBoxColumn";
+            this.childrenAvailabilityIngoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // infantsAvailabilityIngoingDataGridViewTextBoxColumn
+            // 
+            this.infantsAvailabilityIngoingDataGridViewTextBoxColumn.DataPropertyName = "InfantsAvailabilityIngoing";
+            this.infantsAvailabilityIngoingDataGridViewTextBoxColumn.HeaderText = "InfantsAvailabilityIngoing";
+            this.infantsAvailabilityIngoingDataGridViewTextBoxColumn.Name = "infantsAvailabilityIngoingDataGridViewTextBoxColumn";
+            this.infantsAvailabilityIngoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // seniorsAvailabilityIngoingDataGridViewTextBoxColumn
+            // 
+            this.seniorsAvailabilityIngoingDataGridViewTextBoxColumn.DataPropertyName = "SeniorsAvailabilityIngoing";
+            this.seniorsAvailabilityIngoingDataGridViewTextBoxColumn.HeaderText = "SeniorsAvailabilityIngoing";
+            this.seniorsAvailabilityIngoingDataGridViewTextBoxColumn.Name = "seniorsAvailabilityIngoingDataGridViewTextBoxColumn";
+            this.seniorsAvailabilityIngoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // adultAvailabilityOutgoingDataGridViewTextBoxColumn
+            // 
+            this.adultAvailabilityOutgoingDataGridViewTextBoxColumn.DataPropertyName = "AdultAvailabilityOutgoing";
+            this.adultAvailabilityOutgoingDataGridViewTextBoxColumn.HeaderText = "AdultAvailabilityOutgoing";
+            this.adultAvailabilityOutgoingDataGridViewTextBoxColumn.Name = "adultAvailabilityOutgoingDataGridViewTextBoxColumn";
+            this.adultAvailabilityOutgoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // childrenAvailabilityOutgoingDataGridViewTextBoxColumn
+            // 
+            this.childrenAvailabilityOutgoingDataGridViewTextBoxColumn.DataPropertyName = "ChildrenAvailabilityOutgoing";
+            this.childrenAvailabilityOutgoingDataGridViewTextBoxColumn.HeaderText = "ChildrenAvailabilityOutgoing";
+            this.childrenAvailabilityOutgoingDataGridViewTextBoxColumn.Name = "childrenAvailabilityOutgoingDataGridViewTextBoxColumn";
+            this.childrenAvailabilityOutgoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // infantsAvailabilityOutgoingDataGridViewTextBoxColumn
+            // 
+            this.infantsAvailabilityOutgoingDataGridViewTextBoxColumn.DataPropertyName = "InfantsAvailabilityOutgoing";
+            this.infantsAvailabilityOutgoingDataGridViewTextBoxColumn.HeaderText = "InfantsAvailabilityOutgoing";
+            this.infantsAvailabilityOutgoingDataGridViewTextBoxColumn.Name = "infantsAvailabilityOutgoingDataGridViewTextBoxColumn";
+            this.infantsAvailabilityOutgoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // seniorsAvailabilityOutgoingDataGridViewTextBoxColumn
+            // 
+            this.seniorsAvailabilityOutgoingDataGridViewTextBoxColumn.DataPropertyName = "SeniorsAvailabilityOutgoing";
+            this.seniorsAvailabilityOutgoingDataGridViewTextBoxColumn.HeaderText = "SeniorsAvailabilityOutgoing";
+            this.seniorsAvailabilityOutgoingDataGridViewTextBoxColumn.Name = "seniorsAvailabilityOutgoingDataGridViewTextBoxColumn";
+            this.seniorsAvailabilityOutgoingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // currencyDataGridViewTextBoxColumn
+            // 
+            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
+            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
+            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
+            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // UiMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -626,10 +608,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UiOriginIataCodeGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iataairportcodesBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UiSearchResultDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flightsGridViewBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iataairportcodesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -667,24 +649,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn airportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn availabilityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label UiTotalRowsLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn originDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn departureDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn changesOutgoingDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn changesIngoingDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adultAvailabilityOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn childrenAvailabilityOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn infantsAvailabilityOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seniorsAvailabilityOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adultAvailabilityInDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn childrenAvailabilityInDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn infantsAvailabilityInDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seniorsAvailabilityInDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stopsOutgoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stopsIngoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adultAvailabilityIngoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn childrenAvailabilityIngoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn infantsAvailabilityIngoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seniorsAvailabilityIngoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adultAvailabilityOutgoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn childrenAvailabilityOutgoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn infantsAvailabilityOutgoingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seniorsAvailabilityOutgoingDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource flightsGridViewBindingSource;
-        private System.Windows.Forms.Label UiTotalRowsLabel;
+        private System.Windows.Forms.BindingSource flightsBindingSource;
     }
 }
 

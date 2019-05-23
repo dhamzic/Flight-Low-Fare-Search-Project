@@ -21,15 +21,15 @@ namespace KingICT_Project
         public System.DateTime ReturnDate { get; set; }
         public int StopsOutgoing { get; set; }
         public int StopsIngoing { get; set; }
-        public Nullable<int> AdultAvailabilityIngoing { get; set; }
-        public Nullable<int> ChildrenAvailabilityIngoing { get; set; }
-        public Nullable<int> InfantsAvailabilityIngoing { get; set; }
-        public Nullable<int> SeniorsAvailabilityIngoing { get; set; }
-        public Nullable<int> AdultAvailabilityOutgoing { get; set; }
-        public Nullable<int> ChildrenAvailabilityOutgoing { get; set; }
-        public Nullable<int> InfantsAvailabilityOutgoing { get; set; }
-        public Nullable<int> SeniorsAvailabilityOutgoing { get; set; }
-        public decimal Price { get; set; }
+        public string AdultAvailabilityIngoing { get; set; }
+        public string ChildrenAvailabilityIngoing { get; set; }
+        public string InfantsAvailabilityIngoing { get; set; }
+        public string SeniorsAvailabilityIngoing { get; set; }
+        public string AdultAvailabilityOutgoing { get; set; }
+        public string ChildrenAvailabilityOutgoing { get; set; }
+        public string InfantsAvailabilityOutgoing { get; set; }
+        public string SeniorsAvailabilityOutgoing { get; set; }
+        public double Price { get; set; }
         public string Currency { get; set; }
     }
 }

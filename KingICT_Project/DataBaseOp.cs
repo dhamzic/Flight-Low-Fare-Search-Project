@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace KingICT_Project
 {
-    public static class DataBaseOp
+    public class DataBaseOp : FlightsDBEntities
     {
-        public static BindingList<Iata_airport_codes> FetchSpecificIataCodes(string keyWord)
+        public BindingList<Iata_airport_codes> FetchSpecificIataCodes(string keyWord)
         {
             BindingList<Iata_airport_codes> listOfIataCodes = null;
             using (var db = new FlightsDBEntities())
@@ -30,5 +30,19 @@ namespace KingICT_Project
             return listOfIataCodes;
 
         }
+        public void InsertFlights(List<Flights> listOfFlights)
+        {
+            using (var db = new FlightsDBEntities())
+            {
+                foreach (var flight in listOfFlights)
+                {
+                    db.Flights.Add(flight);
+                }
+                db.SaveChanges();
+            }
+
+
+        }
     }
+
 }

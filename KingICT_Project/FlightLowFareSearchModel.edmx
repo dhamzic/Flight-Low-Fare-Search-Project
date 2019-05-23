@@ -16,15 +16,15 @@
           <Property Name="ReturnDate" Type="date" Nullable="false" />
           <Property Name="StopsOutgoing" Type="int" Nullable="false" />
           <Property Name="StopsIngoing" Type="int" Nullable="false" />
-          <Property Name="AdultAvailabilityIngoing" Type="int" />
-          <Property Name="ChildrenAvailabilityIngoing" Type="int" />
-          <Property Name="InfantsAvailabilityIngoing" Type="int" />
-          <Property Name="SeniorsAvailabilityIngoing" Type="int" />
-          <Property Name="AdultAvailabilityOutgoing" Type="int" />
-          <Property Name="ChildrenAvailabilityOutgoing" Type="int" />
-          <Property Name="InfantsAvailabilityOutgoing" Type="int" />
-          <Property Name="SeniorsAvailabilityOutgoing" Type="int" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AdultAvailabilityIngoing" Type="nvarchar" MaxLength="10" />
+          <Property Name="ChildrenAvailabilityIngoing" Type="nvarchar" MaxLength="10" />
+          <Property Name="InfantsAvailabilityIngoing" Type="nvarchar" MaxLength="10" />
+          <Property Name="SeniorsAvailabilityIngoing" Type="nvarchar" MaxLength="10" />
+          <Property Name="AdultAvailabilityOutgoing" Type="nvarchar" MaxLength="10" />
+          <Property Name="ChildrenAvailabilityOutgoing" Type="nvarchar" MaxLength="10" />
+          <Property Name="InfantsAvailabilityOutgoing" Type="nvarchar" MaxLength="10" />
+          <Property Name="SeniorsAvailabilityOutgoing" Type="nvarchar" MaxLength="10" />
+          <Property Name="Price" Type="float" Nullable="false" />
           <Property Name="Currency" Type="nvarchar" MaxLength="4" Nullable="false" />
         </EntityType>
         <EntityType Name="Iata_airport_codes">
@@ -58,15 +58,15 @@
           <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StopsOutgoing" Type="Int32" Nullable="false" />
           <Property Name="StopsIngoing" Type="Int32" Nullable="false" />
-          <Property Name="AdultAvailabilityIngoing" Type="Int32" />
-          <Property Name="ChildrenAvailabilityIngoing" Type="Int32" />
-          <Property Name="InfantsAvailabilityIngoing" Type="Int32" />
-          <Property Name="SeniorsAvailabilityIngoing" Type="Int32" />
-          <Property Name="AdultAvailabilityOutgoing" Type="Int32" />
-          <Property Name="ChildrenAvailabilityOutgoing" Type="Int32" />
-          <Property Name="InfantsAvailabilityOutgoing" Type="Int32" />
-          <Property Name="SeniorsAvailabilityOutgoing" Type="Int32" />
-          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="AdultAvailabilityIngoing" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ChildrenAvailabilityIngoing" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="InfantsAvailabilityIngoing" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SeniorsAvailabilityIngoing" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AdultAvailabilityOutgoing" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ChildrenAvailabilityOutgoing" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="InfantsAvailabilityOutgoing" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SeniorsAvailabilityOutgoing" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" Nullable="false" />
           <Property Name="Currency" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Iata_airport_codes">
