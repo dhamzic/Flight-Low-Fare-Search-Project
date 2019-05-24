@@ -33,10 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.UiChildrenTextBox = new System.Windows.Forms.TextBox();
@@ -60,10 +56,12 @@
             this.UiOriginSearchTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.UiOriginIataCodeGridView = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.airportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iataairportcodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.UiSearchResultDataGridView = new System.Windows.Forms.DataGridView();
-            this.UiTotalRowsLabel = new System.Windows.Forms.Label();
-            this.UiFetchedFromLabel = new System.Windows.Forms.Label();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.originDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,17 +80,15 @@
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flightsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.airportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iataairportcodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.UiTotalRowsLabel = new System.Windows.Forms.Label();
+            this.UiFetchedFromLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UiOriginIataCodeGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iataairportcodesBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UiSearchResultDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iataairportcodesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -369,38 +365,50 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.UiOriginIataCodeGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.UiOriginIataCodeGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UiOriginIataCodeGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.UiOriginIataCodeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UiOriginIataCodeGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
             this.airportDataGridViewTextBoxColumn,
             this.codeDataGridViewTextBoxColumn});
             this.UiOriginIataCodeGridView.DataSource = this.iataairportcodesBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UiOriginIataCodeGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.UiOriginIataCodeGridView.Location = new System.Drawing.Point(8, 71);
             this.UiOriginIataCodeGridView.Margin = new System.Windows.Forms.Padding(4);
             this.UiOriginIataCodeGridView.Name = "UiOriginIataCodeGridView";
             this.UiOriginIataCodeGridView.ReadOnly = true;
             this.UiOriginIataCodeGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UiOriginIataCodeGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UiOriginIataCodeGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.UiOriginIataCodeGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.UiOriginIataCodeGridView.Size = new System.Drawing.Size(307, 283);
             this.UiOriginIataCodeGridView.TabIndex = 0;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // airportDataGridViewTextBoxColumn
+            // 
+            this.airportDataGridViewTextBoxColumn.DataPropertyName = "Airport";
+            this.airportDataGridViewTextBoxColumn.HeaderText = "Airport";
+            this.airportDataGridViewTextBoxColumn.Name = "airportDataGridViewTextBoxColumn";
+            this.airportDataGridViewTextBoxColumn.ReadOnly = true;
+            this.airportDataGridViewTextBoxColumn.Width = 160;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codeDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // iataairportcodesBindingSource
+            // 
+            this.iataairportcodesBindingSource.DataSource = typeof(KingICT_Project.Iata_airport_codes);
             // 
             // groupBox3
             // 
@@ -419,17 +427,9 @@
             // 
             this.UiSearchResultDataGridView.AllowUserToAddRows = false;
             this.UiSearchResultDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UiSearchResultDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UiSearchResultDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.UiSearchResultDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UiSearchResultDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.UiSearchResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UiSearchResultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn1,
@@ -450,48 +450,17 @@
             this.priceDataGridViewTextBoxColumn,
             this.currencyDataGridViewTextBoxColumn});
             this.UiSearchResultDataGridView.DataSource = this.flightsBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UiSearchResultDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this.UiSearchResultDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UiSearchResultDataGridView.Location = new System.Drawing.Point(4, 27);
             this.UiSearchResultDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.UiSearchResultDataGridView.Name = "UiSearchResultDataGridView";
             this.UiSearchResultDataGridView.ReadOnly = true;
             this.UiSearchResultDataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UiSearchResultDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UiSearchResultDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.UiSearchResultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.UiSearchResultDataGridView.Size = new System.Drawing.Size(939, 300);
             this.UiSearchResultDataGridView.TabIndex = 0;
-            // 
-            // UiTotalRowsLabel
-            // 
-            this.UiTotalRowsLabel.AutoSize = true;
-            this.UiTotalRowsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UiTotalRowsLabel.Location = new System.Drawing.Point(836, 803);
-            this.UiTotalRowsLabel.Name = "UiTotalRowsLabel";
-            this.UiTotalRowsLabel.Size = new System.Drawing.Size(130, 20);
-            this.UiTotalRowsLabel.TabIndex = 23;
-            this.UiTotalRowsLabel.Text = "Total Rows: 561";
-            this.UiTotalRowsLabel.Visible = false;
-            // 
-            // UiFetchedFromLabel
-            // 
-            this.UiFetchedFromLabel.AutoSize = true;
-            this.UiFetchedFromLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UiFetchedFromLabel.ForeColor = System.Drawing.Color.Brown;
-            this.UiFetchedFromLabel.Location = new System.Drawing.Point(13, 803);
-            this.UiFetchedFromLabel.Name = "UiFetchedFromLabel";
-            this.UiFetchedFromLabel.Size = new System.Drawing.Size(176, 20);
-            this.UiFetchedFromLabel.TabIndex = 24;
-            this.UiFetchedFromLabel.Text = "Fetched from: local db";
-            this.UiFetchedFromLabel.Visible = false;
             // 
             // iDDataGridViewTextBoxColumn1
             // 
@@ -617,33 +586,28 @@
             // 
             this.flightsBindingSource.DataSource = typeof(KingICT_Project.Flights);
             // 
-            // iDDataGridViewTextBoxColumn
+            // UiTotalRowsLabel
             // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Visible = false;
+            this.UiTotalRowsLabel.AutoSize = true;
+            this.UiTotalRowsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UiTotalRowsLabel.Location = new System.Drawing.Point(836, 803);
+            this.UiTotalRowsLabel.Name = "UiTotalRowsLabel";
+            this.UiTotalRowsLabel.Size = new System.Drawing.Size(130, 20);
+            this.UiTotalRowsLabel.TabIndex = 23;
+            this.UiTotalRowsLabel.Text = "Total Rows: 561";
+            this.UiTotalRowsLabel.Visible = false;
             // 
-            // airportDataGridViewTextBoxColumn
+            // UiFetchedFromLabel
             // 
-            this.airportDataGridViewTextBoxColumn.DataPropertyName = "Airport";
-            this.airportDataGridViewTextBoxColumn.HeaderText = "Airport";
-            this.airportDataGridViewTextBoxColumn.Name = "airportDataGridViewTextBoxColumn";
-            this.airportDataGridViewTextBoxColumn.ReadOnly = true;
-            this.airportDataGridViewTextBoxColumn.Width = 160;
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codeDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // iataairportcodesBindingSource
-            // 
-            this.iataairportcodesBindingSource.DataSource = typeof(KingICT_Project.Iata_airport_codes);
+            this.UiFetchedFromLabel.AutoSize = true;
+            this.UiFetchedFromLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UiFetchedFromLabel.ForeColor = System.Drawing.Color.Brown;
+            this.UiFetchedFromLabel.Location = new System.Drawing.Point(13, 803);
+            this.UiFetchedFromLabel.Name = "UiFetchedFromLabel";
+            this.UiFetchedFromLabel.Size = new System.Drawing.Size(176, 20);
+            this.UiFetchedFromLabel.TabIndex = 24;
+            this.UiFetchedFromLabel.Text = "Fetched from: local db";
+            this.UiFetchedFromLabel.Visible = false;
             // 
             // UiMainForm
             // 
@@ -658,6 +622,8 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UiMainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -667,10 +633,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UiOriginIataCodeGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iataairportcodesBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UiSearchResultDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iataairportcodesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
