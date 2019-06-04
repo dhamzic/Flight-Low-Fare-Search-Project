@@ -94,13 +94,17 @@ namespace KingICT_Project
                         InfantsAvailabilityIngoing = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerInfant == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerInfant.Availability.ToString(),
                         SeniorsAvailabilityIngoing = flight.OfferItems[0].Services[1].Segments[0].PricingDetailPerSenior == null ? "empty" : flight.OfferItems[0].Services[0].Segments[0].PricingDetailPerSenior.Availability.ToString(),
                         Price = double.Parse(flight.OfferItems[0].Price.Total, CultureInfo.InvariantCulture),
-                        Currency = UiCurrencyComboBox.SelectedItem.ToString()
+                        Currency = UiCurrencyComboBox.SelectedItem.ToString(),
+                        InsertedAdults = int.Parse(UiAdultsTextBox.Text),
+                        InsertedChildren = int.Parse(UiChildrenTextBox.Text),
+                        InsertedInfants = int.Parse(UiInfantsTextBox.Text),
+                        InsertedSeniors = int.Parse(UiSeniorsTextBox.Text)
                     });
 
 
 
                 }
-                UiSearchResultDataGridView.DataSource = listOfFlights;
+                UiSearchResultDataGridView.DataSource = listOfFlights.OrderBy(o => o.Price).ToList();
                 UiTotalRowsLabel.Text = "Total rows: " + listOfFlights.Count + "";
                 UiTotalRowsLabel.Visible = true;
                 dbAccess.InsertFlights(listOfFlights);
@@ -116,7 +120,7 @@ namespace KingICT_Project
         private void TableFillingWithDatabaseData(List<Flights> listOfFlightsFetchedFromDB)
         {
             UiSearchResultDataGridView.DataSource = null;
-            UiSearchResultDataGridView.DataSource = listOfFlightsFetchedFromDB;
+            UiSearchResultDataGridView.DataSource = listOfFlightsFetchedFromDB.OrderBy(o => o.Price).ToList();
 
             UiFetchedFromLabel.Text = "== Fetched from a Local Database ==";
             UiFetchedFromLabel.Visible = true;
@@ -227,7 +231,7 @@ namespace KingICT_Project
             UiCurrentSelectionListBox.Items.Add(flightConditions.Origin + " >> " + flightConditions.Destination);
         }
 
-        
+
         private void UiOriginButton_Click(object sender, EventArgs e)
         {
             Iata_airport_codes selectedGridItem = (Iata_airport_codes)UiOriginIataCodeGridView.CurrentRow.DataBoundItem;
@@ -246,12 +250,62 @@ namespace KingICT_Project
 
         private void UiSearchButton_Click(object sender, EventArgs e)
         {
+            //Check Passenger values. Check if input is integer.
+            int value;
+            if (int.TryParse(UiAdultsTextBox.Text, out value))
+            {
+
+
+            }
+            else
+            {
+                MessageBox.Show("Value of the adults number must be integer number.");
+                return;
+            }
+            if (int.TryParse(UiSeniorsTextBox.Text, out value))
+            {
+
+
+            }
+            else
+            {
+                MessageBox.Show("Value of the seniors number must be integer number.");
+                return;
+            }
+            if (int.TryParse(UiInfantsTextBox.Text, out value))
+            {
+
+
+            }
+            else
+            {
+                MessageBox.Show("Value of the infants number must be integer number.");
+                return;
+            }
+            if (int.TryParse(UiChildrenTextBox.Text, out value))
+            {
+
+
+            }
+            else
+            {
+                MessageBox.Show("Value of the children number must be integer number.");
+                return;
+            }
+
+
+
+
             string selectedCurrency = UiCurrencyComboBox.SelectedValue.ToString();
             TaskFactory tf = new TaskFactory();
 
             flightConditions.Currency = selectedCurrency;
             flightConditions.DepartureDate = UiDepartureDateTimePicker.Value.Date;
             flightConditions.ReturnDate = UiReturnDateTimePicker.Value.Date;
+            flightConditions.InsertedAdults = int.Parse(UiAdultsTextBox.Text);
+            flightConditions.InsertedChildren = int.Parse(UiChildrenTextBox.Text);
+            flightConditions.InsertedInfants = int.Parse(UiInfantsTextBox.Text);
+            flightConditions.InsertedSeniors = int.Parse(UiSeniorsTextBox.Text);
 
             //Local DataBase check, first
             List<Flights> fetchedFlights = dbAccess.FetchFlights(flightConditions);

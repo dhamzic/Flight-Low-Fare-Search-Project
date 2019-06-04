@@ -31,5 +31,9 @@ namespace KingICT_Project
         public string SeniorsAvailabilityOutgoing { get; set; }
         public double Price { get; set; }
         public string Currency { get; set; }
+        public int InsertedAdults { get; set; }
+        public int InsertedChildren { get; set; }
+        public int InsertedInfants { get; set; }
+        public int InsertedSeniors { get; set; }
     }
 }
